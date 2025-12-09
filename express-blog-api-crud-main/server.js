@@ -4,6 +4,7 @@ const PORT = 3000
 const productsRouter = require('./roots/posts')
 const notFound = require('./middlewares/notFound')
 const serverDown = require('./middlewares/serverDown')
+const dataBase = require('./database')
 
 app.use(express.static('public'));
 app.listen(PORT, () => {

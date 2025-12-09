@@ -11,6 +11,12 @@ const index = (req, res) => {
     }*/
     const sql = 'SELECT * FROM ProdottiPasticceria';
     dataBase.query(sql, (err, results) => {
+        if (err) {
+            console.error('Errore');
+            return res.status(500).json({
+                error: 'Errore interno del server'
+            });
+        }
         res.json(results);
     });
 

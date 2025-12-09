@@ -1,4 +1,5 @@
 const products = require('../data/products');
+const dataBase = require('./database')
 
 //index
 const index = (req, res) => {
@@ -8,6 +9,10 @@ const index = (req, res) => {
             product => product.tags.includes(req.query.tags)
         );
     }*/
+    const sql = 'SELECT * FROM ProdottiPasticceria';
+    dataBase.query(sql, (err, results) => {
+        res.json(results);
+    });
 
     res.json(products);
 }

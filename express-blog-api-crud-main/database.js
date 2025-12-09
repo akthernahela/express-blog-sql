@@ -12,4 +12,5 @@ connection.connect(err => {
         console.error('Errore di connessione al database:');
         return;
     }
+    console.log('Connesso al database');
 })    

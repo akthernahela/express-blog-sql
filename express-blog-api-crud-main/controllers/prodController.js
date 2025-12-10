@@ -79,6 +79,11 @@ const destroy = (req, res) => {
     const prodId = Number(req.params.id)
     const searchProd = products.find(product => product.id === prodId)
     //console.log(searchProd);
+    dataBase.query('DELETE FROM ProdottiPasticceria WHERE id = ?', [productId], (err) => {
+        if (err) return res.status(500).json({
+            error: "Errore interno del server durante l'eliminazione del post."
+        });
+    });
 
     if (!searchProd) {
         return res.status(404).json({

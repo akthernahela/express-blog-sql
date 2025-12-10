@@ -26,6 +26,12 @@ const index = (req, res) => {
 //show
 const show = (req, res) => {
     const prodId = Number(req.params.id);
+    const productId = req.params.id;
+    dataBase.query('SELECT * FROM ProdottiPasticceria WHERE id = ?', [prodId], (err) => {
+        if (err) return res.status(500).json({
+            error: "Errore del server"
+        });
+    });
     const singleProd = products.find(product => product.id === prodId);
     res.json(singleProd);
 }
